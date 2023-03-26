@@ -11,8 +11,8 @@ private:
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
-	void AddEdgeToDirectedGraph(int from , int to);
-	void AddEdgeToUnirectedGraph(int from , int to);
+	void AddEdgeToDirectedGraph(int from , int to,bool flag);
+	void AddEdgeToUnirectedGraph(int from , int to,bool flag);
 
 	
 	
