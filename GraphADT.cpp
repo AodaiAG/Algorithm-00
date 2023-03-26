@@ -26,4 +26,13 @@ void GraphADT::CreateUndirectedGraph()
 
 void GraphADT::CreateGraphFromDetails()
 {
+
+}
+void GraphADT::AddEdgeToDirectedGraph(int from, int to)
+{
+
+}
+void GraphADT::AddEdgeToUnirectedGraph(int from, int to)
+{
+
 }

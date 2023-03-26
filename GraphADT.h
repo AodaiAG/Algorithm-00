@@ -10,6 +10,8 @@ private:
 	int NumberOfVerdicts;
 	int NumberOfEdges;
 	char isGraphDirected;
+	void AddEdgeToDirectedGraph(int from , int to);
+	void AddEdgeToUnirectedGraph(int from , int to);
 
 	
 	
