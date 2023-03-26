@@ -7,7 +7,19 @@ using namespace std;
 void main()
 {
 	GraphADT test;
-	test.GetGraphDetails();
+	char isGraphDirected;
+	int NumberOfNodes;
+	int NumberOfEdges;
+
+
+	cout << "Is the graph directed: y/n: ";
+	cin >> isGraphDirected;
+	cout << "Please Enter The Number Of Verdicts: ";
+	cin >> NumberOfNodes;
+	cout << "Please Enter The Number Of Edges: ";
+	cin >> NumberOfEdges;
+
+	test.GetGraphDetails(isGraphDirected, NumberOfNodes, NumberOfEdges);
 	test.CreateGraphFromDetails();
 
 }

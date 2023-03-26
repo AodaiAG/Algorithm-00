@@ -16,15 +16,15 @@ private:
 	int NumberOfEdges;
 	char isGraphDirected;
 	void AddEdge(int from , int to,bool flag);
+
+	
+	
+public:
 	bool isAllDegreeEven();
 	bool isDirectedGraphStronglyConnected();
 	bool isUnDirectedGraphConnected();
 	bool isGraphConnected();
-	
-	
-public:
-
-	void GetGraphDetails();
+	void GetGraphDetails(char, int, int);
 	void CreateGraphFromDetails();
 	
 };

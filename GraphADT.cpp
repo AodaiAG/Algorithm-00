@@ -4,20 +4,13 @@
 #include <iostream>
 #include "main.h"
 
-void GraphADT::GetGraphDetails()
+void GraphADT::GetGraphDetails(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
 {
-	cout << "Is the graph directed: y/n: ";
-	cin >> this->isGraphDirected;
-	cout << "Please Enter The Number Of Verdicts: ";
-	cin >> this->NumberOfNodes;
-	cout << "Please Enter The Number Of Edges: ";
-	cin >> this->NumberOfEdges;
-	cout << endl;
-	this->Graph.reserve(NumberOfNodes+1);
-	
-	cleanBuffer();
+	this->isGraphDirected = isGraphDirected;
+	this->NumberOfNodes = NumberOfNodes;
+	this->NumberOfEdges = NumberOfEdges;
 	Graph.push_back(GraphNode()); // so we can start from index 1 
-	for (int i = 0; i < NumberOfNodes + 1; i++)
+	for (int i = 0; i < NumberOfNodes + 1; i++) // init graph
 	{
 		GraphNode temp;
 		temp.nodeNumber = i + 1;
