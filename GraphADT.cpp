@@ -12,17 +12,9 @@ void GraphADT::GetGraphDetails()
 	cout << "Please Enter The Number Of Edges";
 	cin >> this->NumberOfEdges;
 
-
-}
-void GraphADT::CreateDirectedGraph()
-{
-	
+	this->Graph.reserve(NumberOfVerdicts);
 }
 
-void GraphADT::CreateUndirectedGraph()
-{
-
-}
 
 void GraphADT::CreateGraphFromDetails()
 {

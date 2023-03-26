@@ -17,8 +17,6 @@ private:
 	
 public:
 
-	void CreateDirectedGraph();
-	void CreateUndirectedGraph();
 	void GetGraphDetails();
 	void CreateGraphFromDetails();
 };
