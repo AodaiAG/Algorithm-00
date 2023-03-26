@@ -3,11 +3,12 @@ using namespace std;
 #include <list>
 #include <vector>
 #include <string>
+#include"GraphNode.h"
 class GraphADT
 {
 private:
-	vector<list<int>> Graph;
-	int NumberOfVerdicts;
+	vector<GraphNode> Graph;
+	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
 	void AddEdgeToDirectedGraph(int from , int to);

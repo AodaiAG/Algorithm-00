@@ -1,10 +1,13 @@
 
 #include <iostream>
 #include <vector>
+#include "GraphADT.h"
 using namespace std;
 
 void main()
 {
-	vector<int> myves;
+	GraphADT test;
+	test.GetGraphDetails();
+	test.CreateGraphFromDetails();
 
 }
