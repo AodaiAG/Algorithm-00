@@ -95,3 +95,20 @@ bool GraphADT::isAllDegreeEven()
 	else
 		return false;
 }
+
+bool GraphADT::isDirectedGraphConnected()
+{
+	return false;
+}
+
+bool GraphADT::isUnDirectedGraphConnected()
+{
+	return false;
+}
+bool GraphADT::isGraphConnected()
+{
+	if (this->isGraphDirected == 'y')
+		return isDirectedGraphConnected();
+	else
+		return isUnDirectedGraphConnected();
+}

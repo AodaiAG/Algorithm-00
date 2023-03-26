@@ -17,7 +17,9 @@ private:
 	char isGraphDirected;
 	void AddEdge(int from , int to,bool flag);
 	bool isAllDegreeEven();
-
+	bool isDirectedGraphConnected();
+	bool isUnDirectedGraphConnected();
+	bool isGraphConnected();
 	
 	
 public:
