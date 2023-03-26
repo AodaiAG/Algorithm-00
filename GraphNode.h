@@ -8,5 +8,6 @@ class GraphNode
 public: 
 	int nodeNumber;
 	list<int> ListofEdges;
+	GraphNode() {};
 };
 

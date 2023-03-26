@@ -5,11 +5,11 @@
 
 void GraphADT::GetGraphDetails()
 {
-	cout << "Is the graph directed: y/n"<<endl;
+	cout << "Is the graph directed: y/n: "<<endl;
 	cin >> this->isGraphDirected;
-	cout << "Please Enter The Number Of Verdicts";
+	cout << "Please Enter The Number Of Verdicts: "<<endl;
 	cin >> this->NumberOfNodes;
-	cout << "Please Enter The Number Of Edges";
+	cout << "Please Enter The Number Of Edges: "<<endl;
 	cin >> this->NumberOfEdges;
 
 	this->Graph.reserve(NumberOfNodes+1);
@@ -59,8 +59,11 @@ void GraphADT::AddEdge(int from, int to,bool flag)
 
 	if (!Flag)
 	{
-		if(this->isGraphDirected=='y')
-		Graph[from].ListofEdges.push_back(to);
+		if (this->isGraphDirected == 'y')
+		{
+			Graph[from].ListofEdges.push_back(to);
+		}
+		
 		else
 		{
 			Graph[from].ListofEdges.push_back(to);

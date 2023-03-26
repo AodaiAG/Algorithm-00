@@ -1,9 +1,13 @@
 #pragma once
+
 using namespace std;
+#include"GraphNode.h"
 #include <list>
 #include <vector>
 #include <string>
-#include"GraphNode.h"
+
+
+class GraphNode; // forward declaration
 class GraphADT
 {
 private:
