@@ -12,10 +12,13 @@ class GraphADT
 {
 private:
 	vector<GraphNode> Graph;
+	int* ColorArray;
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
+	
 	void AddEdge(int from , int to,bool &flag);
+
 
 	
 	
@@ -26,6 +29,7 @@ public:
 	bool isGraphConnected();
 	void GetGraphDetails(char, int, int);
 	void CreateGraphFromDetails();
+	void DFS();
 	
 };
 

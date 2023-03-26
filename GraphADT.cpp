@@ -4,6 +4,16 @@
 #include <iostream>
 #include "main.h"
 
+void GraphADT::DFS()
+{
+	for (int i = 0; i < NumberOfNodes + 1; i++)
+	{
+
+	}
+
+
+}
+
 void GraphADT::GetGraphDetails(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
 {
 	this->isGraphDirected = isGraphDirected;
@@ -38,7 +48,7 @@ void GraphADT::CreateGraphFromDetails()
 			}
 
 	}
-
+	this->ColorArray = new int[NumberOfNodes];
 }
 
 void GraphADT::AddEdge(int from, int to,bool &Flag)
