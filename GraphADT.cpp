@@ -96,7 +96,7 @@ bool GraphADT::isAllDegreeEven()
 		return false;
 }
 
-bool GraphADT::isDirectedGraphConnected()
+bool GraphADT::isDirectedGraphStronglyConnected()
 {
 	return false;
 }
@@ -108,7 +108,7 @@ bool GraphADT::isUnDirectedGraphConnected()
 bool GraphADT::isGraphConnected()
 {
 	if (this->isGraphDirected == 'y')
-		return isDirectedGraphConnected();
+		return isDirectedGraphStronglyConnected();
 	else
 		return isUnDirectedGraphConnected();
 }
