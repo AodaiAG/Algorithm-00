@@ -15,7 +15,7 @@ private:
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
-	void AddEdge(int from , int to,bool flag);
+	void AddEdge(int from , int to,bool &flag);
 
 	
 	

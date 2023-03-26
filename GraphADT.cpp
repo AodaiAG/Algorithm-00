@@ -41,10 +41,9 @@ void GraphADT::CreateGraphFromDetails()
 
 }
 
-void GraphADT::AddEdge(int from, int to,bool flag)
+void GraphADT::AddEdge(int from, int to,bool &flag)
 {
 	list<int> tempnodeList = Graph[from].ListofEdges;
-	bool Flag = false;
 	for (list<int>::iterator itr = tempnodeList.begin(); itr != tempnodeList.end(); ++itr)
 	{
 		if (*itr == to)
