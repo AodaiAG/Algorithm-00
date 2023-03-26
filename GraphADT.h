@@ -2,15 +2,22 @@
 using namespace std;
 #include <list>
 #include <vector>
+#include <string>
 class GraphADT
 {
 private:
 	vector<list<int>> Graph;
+	int NumberOfVerdicts;
+	int NumberOfEdges;
+	char isGraphDirected;
+
 	
 	
 public:
 
-	void CreateDirectedGraph(int size);
-	void CreateUndirectedGraph(int size);
+	void CreateDirectedGraph();
+	void CreateUndirectedGraph();
+	void GetGraphDetails();
+	void CreateGraphFromDetails();
 };
 
