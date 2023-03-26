@@ -11,3 +11,14 @@ void main()
 	test.CreateGraphFromDetails();
 
 }
+
+void cleanBuffer()
+{
+	int c;
+	do
+	{
+		c = getchar();
+	} while (c != EOF && c != '\n');
+	cin.clear();
+
+}

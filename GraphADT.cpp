@@ -2,23 +2,25 @@
 #include <vector>
 #include <list>
 #include <iostream>
+#include "main.h"
 
 void GraphADT::GetGraphDetails()
 {
-	cout << "Is the graph directed: y/n: "<<endl;
+	cout << "Is the graph directed: y/n: ";
 	cin >> this->isGraphDirected;
-	cout << "Please Enter The Number Of Verdicts: "<<endl;
+	cout << "Please Enter The Number Of Verdicts: ";
 	cin >> this->NumberOfNodes;
-	cout << "Please Enter The Number Of Edges: "<<endl;
+	cout << "Please Enter The Number Of Edges: ";
 	cin >> this->NumberOfEdges;
-
+	cout << endl;
 	this->Graph.reserve(NumberOfNodes+1);
 	
-
+	cleanBuffer();
 	for (int i = 0; i < NumberOfNodes + 1; i++)
 	{
 		GraphNode temp;
 		temp.nodeNumber = i + 1;
+		Graph.push_back(temp);
 
 
 	}
