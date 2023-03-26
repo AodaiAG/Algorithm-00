@@ -28,7 +28,7 @@ void GraphADT::GetGraphDetails()
 void GraphADT::CreateGraphFromDetails()
 {
 	int from, to;
-	bool flag = false; // To know whether an edge already exisits or not
+	bool flag = false; // To know whether an edge already exists or not
 	
 	for (int i = 0; i < NumberOfEdges; i++)
 	{
@@ -56,6 +56,7 @@ void GraphADT::AddEdge(int from, int to,bool flag)
 			Flag = true; // edge already Added
 		}
 	}
+
 	if (!Flag)
 	{
 		if(this->isGraphDirected=='y')
