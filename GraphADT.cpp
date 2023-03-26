@@ -34,24 +34,18 @@ void GraphADT::CreateGraphFromDetails()
 	{
 		cin >> from;
 		cin >> to;
-		if (this->isGraphDirected == 'y')
-		{
-			AddEdgeToDirectedGraph(from, to,&flag);
-			if (flag)
+		AddEdge(from, to,&flag);
+			if (flag) // means edge already added
 			{
 				i--;
 				flag = false;
 			}
-		}
-		else
-		{
-			AddEdgeToUnirectedGraph(from, to,&flag);
-		}
+
 	}
 
 }
 
-void GraphADT::AddEdgeToDirectedGraph(int from, int to,bool flag)
+void GraphADT::AddEdge(int from, int to,bool flag)
 {
 	list<int> tempnodeList = Graph[from].ListofEdges;
 	bool Flag = false;
@@ -64,7 +58,14 @@ void GraphADT::AddEdgeToDirectedGraph(int from, int to,bool flag)
 	}
 	if (!Flag)
 	{
+		if(this->isGraphDirected=='y')
 		Graph[from].ListofEdges.push_back(to);
+		else
+		{
+			Graph[from].ListofEdges.push_back(to);
+			Graph[to].ListofEdges.push_back(from);
+		}
+			
 	}
 	
 	else
@@ -72,10 +73,5 @@ void GraphADT::AddEdgeToDirectedGraph(int from, int to,bool flag)
 		cout << "Edge is Already Added !! "; // throw
 	}
 		
-
-}
-void GraphADT::AddEdgeToUnirectedGraph(int from, int to,bool flag)
-{
-
 
 }
