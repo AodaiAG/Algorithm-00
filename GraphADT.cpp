@@ -30,7 +30,7 @@ void GraphADT::CreateGraphFromDetails()
 	{
 		cin >> from;
 		cin >> to;
-		AddEdge(from, to,&flag);
+		AddEdge(from, to,flag);
 			if (flag) // means edge already added
 			{
 				i--;
@@ -41,7 +41,7 @@ void GraphADT::CreateGraphFromDetails()
 
 }
 
-void GraphADT::AddEdge(int from, int to,bool &flag)
+void GraphADT::AddEdge(int from, int to,bool &Flag)
 {
 	list<int> tempnodeList = Graph[from].ListofEdges;
 	for (list<int>::iterator itr = tempnodeList.begin(); itr != tempnodeList.end(); ++itr)
@@ -69,7 +69,7 @@ void GraphADT::AddEdge(int from, int to,bool &flag)
 	
 	else
 	{
-		cout << "Edge is Already Added !! "; // throw
+		cout << "Edge is Already Added !! "<<endl; // throw
 	}
 		
 
