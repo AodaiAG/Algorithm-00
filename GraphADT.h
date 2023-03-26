@@ -24,5 +24,6 @@ public:
 
 	void GetGraphDetails();
 	void CreateGraphFromDetails();
+	bool isAllDegreeEven();
 };
 

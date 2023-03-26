@@ -16,6 +16,7 @@ void GraphADT::GetGraphDetails()
 	this->Graph.reserve(NumberOfNodes+1);
 	
 	cleanBuffer();
+	Graph.push_back(GraphNode()); // so we can start from index 1 
 	for (int i = 0; i < NumberOfNodes + 1; i++)
 	{
 		GraphNode temp;
@@ -80,4 +81,17 @@ void GraphADT::AddEdge(int from, int to,bool flag)
 	}
 		
 
+}
+bool GraphADT::isAllDegreeEven()
+{
+	int sum = 0;
+	for (int i = 0; i < NumberOfNodes+1; i++)
+	{
+		sum = sum + this->Graph[i + 1].ListofEdges.size();
+
+	}
+	if (sum / 2 == 0)
+		return true;
+	else
+		return false;
 }
