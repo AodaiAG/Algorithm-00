@@ -16,7 +16,7 @@ private:
 	int NumberOfEdges;
 	char isGraphDirected;
 	void AddEdge(int from , int to,bool flag);
-
+	bool isAllDegreeEven();
 
 	
 	
@@ -24,6 +24,6 @@ public:
 
 	void GetGraphDetails();
 	void CreateGraphFromDetails();
-	bool isAllDegreeEven();
+	
 };
 
