@@ -32,6 +32,7 @@ public:
 	GraphADT BuildTransposeGraph(GraphADT G);
 	list<int> FindCircuit(GraphNode &v);
 	list<int> GetEulerCircle();
+	list<int> PasteLists(list<int> source, list<int> target);
 	GraphNode& getFirstUnmarkedEdge(GraphNode &v);
 	void initColorArray();
 	void MarkEdgeAsUsed(int from, int to);

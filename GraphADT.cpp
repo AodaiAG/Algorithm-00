@@ -234,20 +234,53 @@ list<int> GraphADT::GetEulerCircle()
 	auto vertex = L.begin();
 	while (!flag)
 	{
+		if (!isAllEdgesMarked(Graph[*vertex]))
+		{
+			L1 = FindCircuit(Graph[*vertex]);
 
-		 L1= FindCircuit(Graph[*vertex]);
-		 // paste
-		 //vertex = L.begin();
+
+			// paste
+			//vertex = L.begin();
+		}
+
 		vertex = vertex++;
 		if (vertex == L.end())
 			break;
-		flag = isAllEdgesMarked(Graph[*vertex]);
+		if (isAllEdgesMarked(Graph[*vertex]) && vertex == L.end())
+			break;
 	}
 
 
       
 }
 
+list<int> GraphADT::PasteLists(list<int> source, list<int> target)
+{
+	list<int> res;
+	list<int>::iterator Titr = target.begin();
+	list<int>::iterator Sitr = source.begin();
+
+	for (; Sitr != source.end(); Sitr++)
+	{
+		if(Sitr!=Titr)
+		res.push_back(*Sitr);
+		else
+		{
+			for (; Titr != source.end(); Titr++)
+			{
+				res.push_back(*Titr);
+			}
+			Sitr++;
+			for (; Sitr != source.end(); Sitr++)
+			{
+				res.push_back(*Sitr);
+			}
+			break;
+		}
+	}
+
+	return res;
+}
 bool isAllEdgesMarked(GraphNode &v0)
 
 {
