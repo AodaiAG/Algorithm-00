@@ -239,8 +239,8 @@ list<int> GraphADT::GetEulerCircle()
 			L1 = FindCircuit(Graph[*vertex]);
 
 
-			// paste
-			//vertex = L.begin();
+			L = PasteLists(L, L1);
+			vertex = L.begin();
 		}
 
 		vertex = vertex++;
