@@ -229,19 +229,23 @@ list<int> GraphADT::GetEulerCircle()
 
 {
 	list<int> L = FindCircuit(this->Graph[1]);
-	bool flag = true;
-	while (flag)
+	list<int> L1;
+	bool flag = false;
+	auto vertex = L.begin();
+	while (!flag)
 	{
 
-		for (auto i = L.begin(); i != L.end();)
-		{
-
-
-		}
-
+		 L1= FindCircuit(Graph[*vertex]);
+		 // paste
+		 //vertex = L.begin();
+		vertex = vertex++;
+		if (vertex == L.end())
+			break;
+		flag = isAllEdgesMarked(Graph[*vertex]);
 	}
-	 
-      g
+
+
+      
 }
 
 bool isAllEdgesMarked(GraphNode &v0)
