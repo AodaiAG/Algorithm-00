@@ -6,10 +6,7 @@
 
 void GraphADT::DFS()
 {
-	for (int i = 1; i < NumberOfNodes + 1; i++)
-	{
-		ColorArray[i] = White;
-	}
+	initColorArray();
 
 	for (int i = 1; i < NumberOfNodes + 1; i++)
 	{
@@ -116,21 +113,44 @@ bool GraphADT::isAllDegreeEven()
 		sum = sum + this->Graph[i + 1].ListofEdges.size();
 
 	}
-	if (sum / 2 == 0)
+	if (sum % 2 == 0)
 		return true;
 	else
 		return false;
 }
 
+void GraphADT::initColorArray()
+{
+	for (int i = 1; i < NumberOfNodes + 1; i++)
+	{
+		ColorArray[i] = White;
+	}
+
+}
+
 bool GraphADT::isDirectedGraphStronglyConnected()
 {
-	return false;
+	
+	int RandomNode = (rand() % NumberOfNodes) + 1; // Randomly choosing a node to DFS it
+
+	
 }
+
 
 bool GraphADT::isUnDirectedGraphConnected()
 {
-	return false;
+
+	initColorArray();
+	Visit(Graph[1]);
+	for (int i = 1; i < NumberOfNodes+1; i++)
+	{
+		if (ColorArray[i] == White)
+			return false;
+	}
+
+	return true;
 }
+
 bool GraphADT::isGraphConnected()
 {
 	if (this->isGraphDirected == 'y')

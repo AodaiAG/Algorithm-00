@@ -27,6 +27,7 @@ public:
 	bool isDirectedGraphStronglyConnected();
 	bool isUnDirectedGraphConnected();
 	bool isGraphConnected();
+	void initColorArray();
 	void GetGraphDetails(char, int, int);
 	void CreateGraphFromDetails();
 	void Visit(GraphNode Vertex);
