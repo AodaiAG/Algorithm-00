@@ -22,15 +22,15 @@ void GraphADT::DFS()
 void GraphADT::Visit(GraphNode Vertex)
 {
 	ColorArray[Vertex.nodeNumber] = Gray;
-	list<int> AdjList = Vertex.ListofEdges;
-	list<int>::iterator itr;
-
+	list<GraphNode::edge> AdjList = Vertex.ListofEdges;
+	list<GraphNode::edge>::iterator itr;
+	
 	for (itr=AdjList.begin();itr!=AdjList.end();itr++)
 	{
-		if (ColorArray[*itr] == White)
+		if (ColorArray[itr->nodeNumber] == White)
 		{
 			// mark edge 
-			Visit(Graph[*itr]);
+			Visit(Graph[itr->nodeNumber]);
 		}
 	}
 
@@ -74,10 +74,15 @@ void GraphADT::CreateGraphFromUserInput ()
 
 void GraphADT::AddEdge(int from, int to,bool &Flag)
 {
-	list<int> tempnodeList = Graph[from].ListofEdges;
-	for (list<int>::iterator itr = tempnodeList.begin(); itr != tempnodeList.end(); ++itr)
+	GraphNode::edge toEdge;
+	GraphNode::edge fromEdge;
+	fromEdge.nodeNumber = from;
+	toEdge.nodeNumber = to;
+
+	list<GraphNode::edge> tempnodeList = Graph[from].ListofEdges;
+	for (list<GraphNode::edge>::iterator itr = tempnodeList.begin(); itr != tempnodeList.end(); ++itr)
 	{
-		if (*itr == to)
+		if (itr->nodeNumber == to)
 		{
 			Flag = true; // edge already Added
 		}
@@ -87,13 +92,14 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 	{
 		if (this->isGraphDirected == 'y')
 		{
-			Graph[from].ListofEdges.push_back(to);
+			Graph[from].ListofEdges.push_back(toEdge);
 		}
 		
 		else
 		{
-			Graph[from].ListofEdges.push_back(to);
-			Graph[to].ListofEdges.push_back(from);
+
+			Graph[from].ListofEdges.push_back(toEdge);
+			Graph[to].ListofEdges.push_back(fromEdge);
 		}
 			
 	}
@@ -131,17 +137,17 @@ GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 {
 	bool flag=false;
 	GraphADT res;
-	list<int> AdjList;
+	list<GraphNode::edge> AdjList;
 	res.GetGraphDetailsAndInit(G.isGraphDirected, G.NumberOfNodes, G.NumberOfEdges);
 
 	for (int i = 1; i < G.NumberOfNodes+1; i++)
 	{
 
 		AdjList = G.Graph[i].ListofEdges;
-		for (list<int>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
+		for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
 		{
 
-			res.AddEdge(*itr, i, flag);
+			res.AddEdge(itr->nodeNumber, i, flag);
 		}
 		
 
