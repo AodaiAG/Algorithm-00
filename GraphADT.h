@@ -6,17 +6,17 @@ using namespace std;
 #include <vector>
 #include <string>
 
-
+enum Colors{White,Gray,Black};
 class GraphNode; // forward declaration
+
 class GraphADT
 {
 private:
 	vector<GraphNode> Graph;
-	int* ColorArray;
+	Colors* ColorArray;
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
-	
 	void AddEdge(int from , int to,bool &flag);
 
 
@@ -29,6 +29,7 @@ public:
 	bool isGraphConnected();
 	void GetGraphDetails(char, int, int);
 	void CreateGraphFromDetails();
+	void Visit(GraphNode Vertex);
 	void DFS();
 	
 };

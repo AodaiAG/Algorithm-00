@@ -6,12 +6,38 @@
 
 void GraphADT::DFS()
 {
-	for (int i = 0; i < NumberOfNodes + 1; i++)
+	for (int i = 1; i < NumberOfNodes + 1; i++)
 	{
+		ColorArray[i] = White;
+	}
 
+	for (int i = 1; i < NumberOfNodes + 1; i++)
+	{
+		if (ColorArray[i] == White)
+		{
+			Visit(Graph[i]);
+		}
 	}
 
 
+}
+
+void GraphADT::Visit(GraphNode Vertex)
+{
+	ColorArray[Vertex.nodeNumber] = Gray;
+	list<int> AdjList = Vertex.ListofEdges;
+	list<int>::iterator itr;
+
+	for (itr=AdjList.begin();itr!=AdjList.end();itr++)
+	{
+		if (ColorArray[*itr] == White)
+		{
+			// mark edge 
+			Visit(Graph[*itr]);
+		}
+	}
+
+	ColorArray[Vertex.nodeNumber] = Black;
 }
 
 void GraphADT::GetGraphDetails(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
@@ -25,8 +51,6 @@ void GraphADT::GetGraphDetails(char isGraphDirected, int NumberOfNodes,int Numbe
 		GraphNode temp;
 		temp.nodeNumber = i + 1;
 		Graph.push_back(temp);
-
-
 	}
 }
 
@@ -48,7 +72,7 @@ void GraphADT::CreateGraphFromDetails()
 			}
 
 	}
-	this->ColorArray = new int[NumberOfNodes];
+	this->ColorArray = new Colors[NumberOfNodes];
 }
 
 void GraphADT::AddEdge(int from, int to,bool &Flag)
