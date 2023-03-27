@@ -127,13 +127,27 @@ void GraphADT::initColorArray()
 	}
 
 }
-GraphADT GraphADT::BuildTransposeGraph()
+GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 {
-	GraphADT Temp;
-	Temp.GetGraphDetails(this->isGraphDirected, this->NumberOfNodes, this->NumberOfEdges);
+	bool flag=false;
+	GraphADT res;
+	list<int> AdjList;
+	res.GetGraphDetailsAndInit(G.isGraphDirected, G.NumberOfNodes, G.NumberOfEdges);
 
+	for (int i = 1; i < G.NumberOfNodes+1; i++)
+	{
 
-	
+		AdjList = G.Graph[i].ListofEdges;
+		for (list<int>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
+		{
+
+			res.AddEdge(*itr, i, flag);
+		}
+		
+
+	}
+
+	return res;
 }
 
 bool GraphADT::isDirectedGraphStronglyConnected()
@@ -148,7 +162,16 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 			return false;
 	}
 	
-	GraphADT Gtranspose = BuildTransposeGraph();
+	GraphADT Gtranspose = BuildTransposeGraph(*this);
+	Gtranspose.initColorArray();
+	Gtranspose.Visit(Gtranspose.Graph[RandomNode]);
+	for (int i = 1; i < Gtranspose.NumberOfNodes + 1; i++)
+	{
+		if (Gtranspose.ColorArray[i] != Black)
+			return false;
+	}
+
+	return true;
 }
 
 
