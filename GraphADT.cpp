@@ -19,7 +19,7 @@ void GraphADT::DFS()
 
 }
 
-void GraphADT::Visit(GraphNode Vertex)
+void GraphADT::Visit(GraphNode &Vertex)
 {
 	ColorArray[Vertex.nodeNumber] = Gray;
 	list<GraphNode::edge> AdjList = Vertex.ListofEdges;
@@ -207,7 +207,7 @@ bool GraphADT::isGraphConnected()
 		return isUnDirectedGraphConnected();
 }
 
-list<int> GraphADT::FindCircuit( GraphNode v0)
+list<int> GraphADT::FindCircuit( GraphNode &v0)
 {
 	GraphNode &v = v0;
 	list<int> L;
@@ -229,12 +229,22 @@ list<int> GraphADT::GetEulerCircle()
 
 {
 	list<int> L = FindCircuit(this->Graph[1]);
+	bool flag = true;
+	while (flag)
+	{
 
+		for (auto i = L.begin(); i != L.end();)
+		{
+
+
+		}
+
+	}
 	 
-	h
+      
 }
 
-bool isAllEdgesMarked(GraphNode v0)
+bool isAllEdgesMarked(GraphNode &v0)
 
 {
 	list<GraphNode::edge> AdjList = v0.ListofEdges;
