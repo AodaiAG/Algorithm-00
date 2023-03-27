@@ -37,22 +37,22 @@ void GraphADT::Visit(GraphNode Vertex)
 	ColorArray[Vertex.nodeNumber] = Black;
 }
 
-void GraphADT::GetGraphDetails(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
+void GraphADT::GetGraphDetailsAndInit(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
 {
 	this->isGraphDirected = isGraphDirected;
 	this->NumberOfNodes = NumberOfNodes;
 	this->NumberOfEdges = NumberOfEdges;
 	Graph.push_back(GraphNode()); // so we can start from index 1 
-	for (int i = 0; i < NumberOfNodes + 1; i++) // init graph
+	for (int i = 1; i < NumberOfNodes + 1; i++) // init graph
 	{
 		GraphNode temp;
-		temp.nodeNumber = i + 1;
+		temp.nodeNumber = i;
 		Graph.push_back(temp);
 	}
 }
 
 
-void GraphADT::CreateGraphFromDetails()
+void GraphADT::CreateGraphFromUserInput ()
 {
 	int from, to;
 	bool flag = false; // To know whether an edge already exists or not
@@ -127,13 +127,28 @@ void GraphADT::initColorArray()
 	}
 
 }
+GraphADT GraphADT::BuildTransposeGraph()
+{
+	GraphADT Temp;
+	Temp.GetGraphDetails(this->isGraphDirected, this->NumberOfNodes, this->NumberOfEdges);
+
+
+	
+}
 
 bool GraphADT::isDirectedGraphStronglyConnected()
 {
 	
 	int RandomNode = (rand() % NumberOfNodes) + 1; // Randomly choosing a node to DFS it
 
+	Visit(Graph[RandomNode]);
+	for (int i = 1; i < NumberOfNodes + 1; i++)
+	{
+		if (ColorArray[i] != Black)
+			return false;
+	}
 	
+	GraphADT Gtranspose = BuildTransposeGraph();
 }
 
 
@@ -144,7 +159,7 @@ bool GraphADT::isUnDirectedGraphConnected()
 	Visit(Graph[1]);
 	for (int i = 1; i < NumberOfNodes+1; i++)
 	{
-		if (ColorArray[i] == White)
+		if (ColorArray[i] != Black)
 			return false;
 	}
 

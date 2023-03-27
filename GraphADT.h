@@ -27,9 +27,10 @@ public:
 	bool isDirectedGraphStronglyConnected();
 	bool isUnDirectedGraphConnected();
 	bool isGraphConnected();
+	GraphADT BuildTransposeGraph();
 	void initColorArray();
-	void GetGraphDetails(char, int, int);
-	void CreateGraphFromDetails();
+	void GetGraphDetailsAndInit(char, int, int);
+	void CreateGraphFromUserInput();
 	void Visit(GraphNode Vertex);
 	void DFS();
 	

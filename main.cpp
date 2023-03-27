@@ -19,8 +19,8 @@ void main()
 	cout << "Please Enter The Number Of Edges: ";
 	cin >> NumberOfEdges;
 
-	test.GetGraphDetails(isGraphDirected, NumberOfNodes, NumberOfEdges);
-	test.CreateGraphFromDetails();
+	test.GetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
+	test.CreateGraphFromUserInput();
 
 }
 
