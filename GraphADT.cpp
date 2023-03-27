@@ -228,7 +228,9 @@ list<int> GraphADT::FindCircuit( GraphNode v0)
 list<int> GraphADT::GetEulerCircle()
 
 {
+	list<int> L = FindCircuit(this->Graph[1]);
 
+	 
 
 }
 
