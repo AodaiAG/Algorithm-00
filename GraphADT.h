@@ -29,7 +29,11 @@ public:
 	bool isGraphConnected();
 	bool isGraphEulerian();
 	GraphADT BuildTransposeGraph(GraphADT G);
+	list<int> FindCircuit(GraphNode v);
+	list<int> GetEulerCircle();
+	GraphNode& getFirstUnmarkedEdge(GraphNode &v);
 	void initColorArray();
+	void MarkEdgeAsUsed(int from, int to);
 	void GetGraphDetailsAndInit(char, int, int);
 	void CreateGraphFromUserInput();
 	void Visit(GraphNode Vertex);

@@ -182,7 +182,7 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 
 bool GraphADT::isGraphEulerian()
 {
-	return isGraphConnected() && isAllDegreeEven();
+	return (  isGraphConnected() && isAllDegreeEven()  );
 }
 
 bool GraphADT::isUnDirectedGraphConnected()
@@ -205,4 +205,69 @@ bool GraphADT::isGraphConnected()
 		return isDirectedGraphStronglyConnected();
 	else
 		return isUnDirectedGraphConnected();
+}
+
+list<int> GraphADT::FindCircuit( GraphNode v0)
+{
+	GraphNode &v = v0;
+	list<int> L;
+	L.push_back(v.nodeNumber);
+	while (!isAllEdgesMarked(v))
+	{
+		GraphNode &u = getFirstUnmarkedEdge(v);
+		MarkEdgeAsUsed(v.nodeNumber, u.nodeNumber);
+		L.push_back(u.nodeNumber);
+		v = u;
+		
+	}
+
+	return L;
+
+}
+
+list<int> GraphADT::GetEulerCircle()
+
+{
+
+
+}
+
+bool isAllEdgesMarked(GraphNode v0)
+
+{
+	list<GraphNode::edge> AdjList = v0.ListofEdges;
+
+	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
+	{
+
+		if (itr->IsMarked == false);
+		return false;
+	}
+
+	return true;
+}
+void GraphADT::MarkEdgeAsUsed(int from, int to)
+{
+
+	list<GraphNode::edge> & AdjList = this->Graph[from].ListofEdges;
+	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
+	{
+
+		if (itr->nodeNumber == to)
+		{
+			itr->IsMarked = true;
+		}
+		
+	}
+
+}
+GraphNode& GraphADT::getFirstUnmarkedEdge(GraphNode &v)
+{
+	list<GraphNode::edge> &AdjList = v.ListofEdges;
+	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
+	{
+
+		if (itr->IsMarked == false)
+		return this->Graph[itr->nodeNumber];
+	}
 }
