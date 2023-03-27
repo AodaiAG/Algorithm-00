@@ -231,7 +231,7 @@ list<int> GraphADT::GetEulerCircle()
 	list<int> L = FindCircuit(this->Graph[1]);
 
 	 
-
+	h
 }
 
 bool isAllEdgesMarked(GraphNode v0)
