@@ -250,7 +250,7 @@ list<int> GraphADT::GetEulerCircle()
 			break;
 	}
 
-
+	return L;
       
 }
 
@@ -281,7 +281,7 @@ list<int> GraphADT::PasteLists(list<int> source, list<int> target)
 
 	return res;
 }
-bool isAllEdgesMarked(GraphNode &v0)
+bool GraphADT::isAllEdgesMarked(GraphNode &v0)
 
 {
 	list<GraphNode::edge> AdjList = v0.ListofEdges;
