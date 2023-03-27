@@ -27,6 +27,7 @@ public:
 	bool isDirectedGraphStronglyConnected();
 	bool isUnDirectedGraphConnected();
 	bool isGraphConnected();
+	bool isGraphEulerian();
 	GraphADT BuildTransposeGraph(GraphADT G);
 	void initColorArray();
 	void GetGraphDetailsAndInit(char, int, int);

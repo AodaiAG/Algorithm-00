@@ -174,6 +174,10 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 	return true;
 }
 
+bool GraphADT::isGraphEulerian()
+{
+	return isGraphConnected() && isAllDegreeEven();
+}
 
 bool GraphADT::isUnDirectedGraphConnected()
 {
