@@ -289,7 +289,7 @@ bool isAllEdgesMarked(GraphNode &v0)
 	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
 	{
 
-		if (itr->IsMarked == false);
+		if (itr->IsMarked == false)
 		return false;
 	}
 
