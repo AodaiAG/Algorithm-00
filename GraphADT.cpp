@@ -82,8 +82,9 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 	GraphNode::edge fromEdge;
 	fromEdge.nodeNumber = from;
 	toEdge.nodeNumber = to;
-
 	list<GraphNode::edge> tempnodeList = Graph[from].ListofEdges;
+
+
 	for (list<GraphNode::edge>::iterator itr = tempnodeList.begin(); itr != tempnodeList.end(); ++itr)
 	{
 		if (itr->nodeNumber == to)
@@ -98,32 +99,27 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 		{
 			Graph[from].ListofEdges.push_back(toEdge);
 		}
-		
 		else
 		{
-
 			Graph[from].ListofEdges.push_back(toEdge);
 			Graph[to].ListofEdges.push_back(fromEdge);
-		}
-			
+		}		
 	}
 	
 	else
 	{
 		cout << "Edge is Already Added !! "<<endl; // throw
 	}
-		
-
 }
 bool GraphADT::isAllDegreeEven()
 {
-
 	int sum = 0;
+
 	for (int i = 1; i < NumberOfNodes+1; i++)
 	{
 		sum = sum + this->Graph[i].ListofEdges.size();
-
 	}
+
 	if (sum % 2 == 0)
 		return true;
 	else
@@ -133,16 +129,15 @@ bool GraphADT::isAllDegreeEven()
 void GraphADT::initColorArray()
 {
 	Colors temp = White;
+
 	for (int i = 0; i < NumberOfNodes + 1; i++)
 	{
-		
 		this->ColorArray.push_back(temp);
 	}
 
 }
 GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 {
-
 	bool flag=false;
 	GraphADT res;
 	list<GraphNode::edge> AdjList;
@@ -154,10 +149,8 @@ GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 		AdjList = G.Graph[i].ListofEdges;
 		for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
 		{
-
 			res.AddEdge(itr->nodeNumber, i, flag);
 		}
-		
 
 	}
 
@@ -196,7 +189,6 @@ bool GraphADT::isGraphEulerian()
 
 bool GraphADT::isUnDirectedGraphConnected()
 {
-
 	initColorArray();
 	Visit(Graph[1]);
 	for (int i = 1; i < NumberOfNodes+1; i++)
@@ -210,7 +202,6 @@ bool GraphADT::isUnDirectedGraphConnected()
 
 bool GraphADT::isGraphConnected()
 {
-
 	if (this->isGraphDirected == 'y')
 		return isDirectedGraphStronglyConnected();
 	else
@@ -219,7 +210,6 @@ bool GraphADT::isGraphConnected()
 
 list<int> GraphADT::FindCircuit( GraphNode &v0)
 {
-
 	GraphNode v = v0;
 	list<int> L;
 	L.push_back(v.nodeNumber);
@@ -250,20 +240,16 @@ list<int> GraphADT::FindCircuit( GraphNode &v0)
 list<int> GraphADT::GetEulerCircle()
 {
 
-
 	list<int> L = FindCircuit(this->Graph[1]);
-
-
 	list<int> L1;
 	bool flag = false;
 	list<int>::iterator vertex = L.begin();
+
 	while (!flag)
 	{
 		if (!isAllEdgesMarked(Graph[*vertex]))
 		{
 			L1 = FindCircuit(Graph[*vertex]);
-
-
 			L = PasteLists(L, L1);
 			vertex = L.begin();
 		}
@@ -282,7 +268,6 @@ list<int> GraphADT::GetEulerCircle()
 list<int> GraphADT::PasteLists(list<int> source, list<int> target)
 {
 
-
 	list<int> res;
 	list<int>::iterator Titr = target.begin();
 	list<int>::iterator Sitr = source.begin();
@@ -297,7 +282,9 @@ list<int> GraphADT::PasteLists(list<int> source, list<int> target)
 			{
 				res.push_back(*Titr);
 			}
+
 			Sitr++;
+
 			for (; Sitr != source.end(); Sitr++)
 			{
 				res.push_back(*Sitr);
@@ -310,12 +297,10 @@ list<int> GraphADT::PasteLists(list<int> source, list<int> target)
 }
 bool GraphADT::isAllEdgesMarked(GraphNode &v0)
 {
-
 	list<GraphNode::edge> AdjList = v0.ListofEdges;
 
 	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
 	{
-
 		if (itr->IsMarked == false)
 		return false;
 	}
@@ -340,11 +325,10 @@ void GraphADT::MarkEdgeAsUsed(int from, int to)
 }
 GraphNode GraphADT::getFirstUnmarkedEdge(GraphNode &v)
 {
-
 	list<GraphNode::edge> &AdjList = Graph[v.nodeNumber].ListofEdges;
+
 	for (list<GraphNode::edge>::iterator itr = AdjList.begin(); itr != AdjList.end(); ++itr)
 	{
-
 		if (itr->IsMarked == false)
 		return this->Graph[itr->nodeNumber];
 	}
@@ -353,7 +337,6 @@ GraphNode GraphADT::getFirstUnmarkedEdge(GraphNode &v)
 void GraphADT::printEulerCircle(list<int> ListOfNodes)
 {
 
-	
 	for (auto node = ListOfNodes.begin(); node != ListOfNodes.end(); ++node)
 	{
 		if (node == ListOfNodes.begin())
