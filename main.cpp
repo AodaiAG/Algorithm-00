@@ -35,7 +35,7 @@ int main()
 		cout << "The Graph is Not Eulerian";
 	}
 
-	f
+	
 	return 0;
 }
 
