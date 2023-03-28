@@ -24,6 +24,7 @@ int main()
 	test.GetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
 	test.CreateGraphFromUserInput();
 	isGraphEulerian = test.isGraphEulerian();
+
 	if (isGraphEulerian)
 	{
 		eulerianCircale = test.GetEulerCircle();

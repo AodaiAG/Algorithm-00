@@ -13,7 +13,7 @@ class GraphADT
 {
 private:
 	vector<GraphNode> Graph;
-	Colors* ColorArray;
+	vector<Colors> ColorArray;
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
@@ -33,7 +33,7 @@ public:
 	list<int> FindCircuit(GraphNode &v);
 	list<int> GetEulerCircle();
 	list<int> PasteLists(list<int> source, list<int> target);
-	GraphNode& getFirstUnmarkedEdge(GraphNode &v);
+	GraphNode getFirstUnmarkedEdge(GraphNode &v);
 	void initColorArray();
 	void printEulerCircle(list<int> ListOfNodes);
 	void MarkEdgeAsUsed(int from, int to);
