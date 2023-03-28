@@ -4,12 +4,14 @@
 #include "GraphADT.h"
 using namespace std;
 
-void main()
+int main()
 {
 	GraphADT test;
 	char isGraphDirected;
 	int NumberOfNodes;
 	int NumberOfEdges;
+	bool isGraphEulerian;
+	list<int> eulerianCircale;
 
 
 	cout << "Is the graph directed: y/n: ";
@@ -21,7 +23,20 @@ void main()
 
 	test.GetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
 	test.CreateGraphFromUserInput();
+	isGraphEulerian = test.isGraphEulerian();
+	if (isGraphEulerian)
+	{
+		eulerianCircale = test.GetEulerCircle();
+		test.printEulerCircle(eulerianCircale);
 
+	}
+	else
+	{
+		cout << "The Graph is Not Eulerian";
+	}
+
+	f
+	return 0;
 }
 
 void cleanBuffer()

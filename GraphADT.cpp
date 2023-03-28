@@ -320,3 +320,21 @@ GraphNode& GraphADT::getFirstUnmarkedEdge(GraphNode &v)
 		return this->Graph[itr->nodeNumber];
 	}
 }
+
+void GraphADT::printEulerCircle(list<int> ListOfNodes)
+{
+	cout << "The graph is aulerian" << endl;
+	cout << "(";
+	for (auto node: ListOfNodes)
+	{
+		if (node != ListOfNodes.back())
+		cout << node << ",";
+		else
+		{
+           cout << node;
+		}
+			
+		
+	}
+	cout << ")";
+}
