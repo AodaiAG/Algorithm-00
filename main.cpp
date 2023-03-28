@@ -1,7 +1,5 @@
 
-#include <iostream>
-#include <vector>
-#include "GraphADT.h"
+#include "main.h"
 using namespace std;
 
 int main()
@@ -39,13 +37,3 @@ int main()
 	return 0;
 }
 
-void cleanBuffer()
-{
-	int c;
-	do
-	{
-		c = getchar();
-	} while (c != EOF && c != '\n');
-	cin.clear();
-
-}

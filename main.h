@@ -1,3 +1,5 @@
 #pragma once
 
-void cleanBuffer();
+#include <iostream>
+#include <vector>
+#include "GraphADT.h"
