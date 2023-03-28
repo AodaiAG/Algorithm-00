@@ -289,11 +289,11 @@ list<int> GraphADT::PasteLists(list<int> source, list<int> target)
 
 	for (; Sitr != source.end(); Sitr++)
 	{
-		if(Sitr!=Titr)
+		if(*Sitr!=*Titr)
 		res.push_back(*Sitr);
 		else
 		{
-			for (; Titr != source.end(); Titr++)
+			for (; Titr != target.end(); Titr++)
 			{
 				res.push_back(*Titr);
 			}
@@ -353,18 +353,25 @@ GraphNode GraphADT::getFirstUnmarkedEdge(GraphNode &v)
 void GraphADT::printEulerCircle(list<int> ListOfNodes)
 {
 
-	cout << "The graph is aulerian" << endl;
-	cout << "(";
-	for (auto node: ListOfNodes)
+	
+	for (auto node = ListOfNodes.begin(); node != ListOfNodes.end(); ++node)
 	{
-		if (node != ListOfNodes.back())
-		cout << node << ",";
+		if (node == ListOfNodes.begin())
+		{
+			cout << "The graph is aulerian" << endl;
+			cout << "("<<*node<<",";
+			continue;
+		}
+		if (node == --ListOfNodes.end())
+		{
+			cout << *node <<")";
+		}
 		else
 		{
-           cout << node;
+			cout << *node << ",";
 		}
-			
-		
+
 	}
-	cout << ")";
+
+	
 }
