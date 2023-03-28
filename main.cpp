@@ -29,7 +29,6 @@ int main()
 	{
 		eulerianCircale = test.GetEulerCircle();
 		test.printEulerCircle(eulerianCircale);
-
 	}
 	else
 	{
