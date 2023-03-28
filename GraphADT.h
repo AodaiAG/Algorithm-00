@@ -37,7 +37,7 @@ public:
 	void initColorArray();
 	void printEulerCircle(list<int> ListOfNodes);
 	void MarkEdgeAsUsed(int from, int to);
-	void GetGraphDetailsAndInit(char, int, int);
+	void SetGraphDetailsAndInit(char, int, int);
 	void CreateGraphFromUserInput();
 	void Visit(GraphNode &Vertex);
 	void DFS();

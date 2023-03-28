@@ -39,7 +39,7 @@ void GraphADT::Visit(GraphNode &Vertex)
 	ColorArray[Vertex.nodeNumber] = Black;
 }
 
-void GraphADT::GetGraphDetailsAndInit(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
+void GraphADT::SetGraphDetailsAndInit(char isGraphDirected, int NumberOfNodes,int NumberOfEdges)
 {
 
 	this->isGraphDirected = isGraphDirected;

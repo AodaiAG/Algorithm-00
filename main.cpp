@@ -21,7 +21,7 @@ int main()
 	cout << "Please Enter The Number Of Edges: ";
 	cin >> NumberOfEdges;
 
-	test.GetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
+	test.SetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
 	test.CreateGraphFromUserInput();
 	isGraphEulerian = test.isGraphEulerian();
 
