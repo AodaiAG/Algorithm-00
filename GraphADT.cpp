@@ -141,7 +141,7 @@ GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 	bool flag=false;
 	GraphADT res;
 	list<GraphNode::edge> AdjList;
-	res.GetGraphDetailsAndInit(G.isGraphDirected, G.NumberOfNodes, G.NumberOfEdges);
+	res.SetGraphDetailsAndInit(G.isGraphDirected, G.NumberOfNodes, G.NumberOfEdges);
 
 	for (int i = 1; i < G.NumberOfNodes+1; i++)
 	{
