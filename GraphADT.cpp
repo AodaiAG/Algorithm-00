@@ -159,7 +159,8 @@ GraphADT GraphADT::BuildTransposeGraph(GraphADT G)
 
 bool GraphADT::isDirectedGraphStronglyConnected()
 {
-	
+	initColorArray();
+
 	int RandomNode = (rand() % NumberOfNodes) + 1; // Randomly choosing a node to DFS it
 
 	Visit(Graph[RandomNode]);
