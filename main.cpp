@@ -12,11 +12,9 @@ int main()
 	list<int> eulerianCircale;
 
 
-	cout << "Is the graph directed: y/n: ";
+	cout << "Is the graph directed: y/n: "<<endl;
 	cin >> isGraphDirected;
-	cout << "Please Enter The Number Of Nodes: ";
 	cin >> NumberOfNodes;
-	cout << "Please Enter The Number Of Edges: ";
 	cin >> NumberOfEdges;
 
 	test.SetGraphDetailsAndInit(isGraphDirected, NumberOfNodes, NumberOfEdges);
@@ -30,7 +28,7 @@ int main()
 	}
 	else
 	{
-		cout << "The Graph is Not Eulerian";
+		cout << "The graph is not aulerian";
 	}
 
 	
