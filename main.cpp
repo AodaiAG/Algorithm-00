@@ -21,7 +21,7 @@ int main()
 	}
 	cin >> NumberOfNodes;
 	cin >> NumberOfEdges;
-	if (NumberOfEdges <= 0 || NumberOfEdges <= 0)
+	if (NumberOfNodes <= 0 || NumberOfEdges <= 0)
 	{
 		cout << "invalid input";
 		exit(1);
