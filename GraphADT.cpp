@@ -48,10 +48,12 @@ void GraphADT::SetGraphDetailsAndInit(char isGraphDirected, int NumberOfNodes,in
 	Graph.push_back(GraphNode()); // so we can start from index 1 
 	for (int i = 1; i < NumberOfNodes + 1; i++) // init graph
 	{
+		this->inDegree.push_back(0);
 		GraphNode temp;
 		temp.nodeNumber = i;
 		Graph.push_back(temp);
 	}
+	this->inDegree.push_back(0);
 }
 
 
@@ -103,6 +105,7 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 		if (this->isGraphDirected == 'y')
 		{
 			Graph[from].ListofEdges.push_back(toEdge);
+			this->inDegree[to]++;
 		}
 		else
 		{
@@ -116,7 +119,7 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 		cout << "Edge is Already Added !! "<<endl; // throw
 	}
 }
-bool GraphADT::isAllDegreeEven()
+bool GraphADT::isAllDegreeEvenUndirectedGraph()
 {
 
 	int sum = 0;
@@ -125,7 +128,6 @@ bool GraphADT::isAllDegreeEven()
 	{
 		sum = sum + this->Graph[i].ListofEdges.size();
 	}
-
 
 
 	if (sum % 2 == 0)
@@ -370,4 +372,24 @@ void GraphADT::printEulerCircle(list<int> ListOfNodes)
 	}
 
 	
+}
+
+bool GraphADT::isAllDegreeEven()
+{
+	if (this->isGraphDirected == 'y')
+	{
+		return isAllDegreeEvenDirectedGraph();
+	}
+	else
+		return isAllDegreeEvenUndirectedGraph();
+}
+
+bool GraphADT::isAllDegreeEvenDirectedGraph()
+{
+	for (int i = 1; i < NumberOfNodes + 1; i++)
+	{
+		if (this->Graph[i].ListofEdges.size() != this->inDegree[i])
+			return false;
+	}
+	return true;
 }

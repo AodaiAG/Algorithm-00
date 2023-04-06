@@ -14,6 +14,7 @@ class GraphADT
 private:
 	vector<GraphNode> Graph;
 	vector<Colors> ColorArray;
+	vector<int> inDegree;
 	int NumberOfNodes;
 	int NumberOfEdges;
 	char isGraphDirected;
@@ -23,11 +24,13 @@ private:
 	
 	
 public:
-	bool isAllDegreeEven();
+	bool isAllDegreeEvenUndirectedGraph();
+	bool isAllDegreeEvenDirectedGraph();
 	bool isDirectedGraphStronglyConnected();
 	bool isUnDirectedGraphConnected();
 	bool isGraphConnected();
 	bool isGraphEulerian();
+	bool isAllDegreeEven();
 	bool isAllEdgesMarked(GraphNode& v0);
 	GraphADT BuildTransposeGraph(GraphADT G);
 	list<int> FindCircuit(GraphNode &v);
