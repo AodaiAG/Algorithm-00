@@ -59,7 +59,6 @@ void GraphADT::CreateGraphFromUserInput ()
 {
 	int from, to;
 	bool flag = false; // To know whether an edge already exists or not
-	
 	for (int i = 0; i < NumberOfEdges; i++)
 	{
 		cin >> from;
@@ -78,6 +77,7 @@ void GraphADT::CreateGraphFromUserInput ()
 
 void GraphADT::AddEdge(int from, int to,bool &Flag)
 {
+
 	GraphNode::edge toEdge;
 	GraphNode::edge fromEdge;
 	fromEdge.nodeNumber = from;
@@ -113,12 +113,15 @@ void GraphADT::AddEdge(int from, int to,bool &Flag)
 }
 bool GraphADT::isAllDegreeEven()
 {
+
 	int sum = 0;
 
 	for (int i = 1; i < NumberOfNodes+1; i++)
 	{
 		sum = sum + this->Graph[i].ListofEdges.size();
 	}
+
+
 
 	if (sum % 2 == 0)
 		return true;
@@ -184,7 +187,9 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 
 bool GraphADT::isGraphEulerian()
 {
-
+	if (this->NumberOfNodes <= 2)
+		return false;
+	else
 	return (  isGraphConnected() && isAllDegreeEven()  );
 }
 
