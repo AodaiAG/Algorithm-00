@@ -77,7 +77,12 @@ void GraphADT::CreateGraphFromUserInput ()
 
 void GraphADT::AddEdge(int from, int to,bool &Flag)
 {
-
+	if (from > NumberOfNodes || to > NumberOfNodes)
+	{
+		cout << "invalid input";
+		exit(1);
+	}
+		
 	GraphNode::edge toEdge;
 	GraphNode::edge fromEdge;
 	fromEdge.nodeNumber = from;
@@ -176,6 +181,7 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 	GraphADT Gtranspose = BuildTransposeGraph(*this);
 	Gtranspose.initColorArray();
 	Gtranspose.Visit(Gtranspose.Graph[RandomNode]);
+
 	for (int i = 1; i < Gtranspose.NumberOfNodes + 1; i++)
 	{
 		if (Gtranspose.ColorArray[i] != Black)
@@ -187,6 +193,7 @@ bool GraphADT::isDirectedGraphStronglyConnected()
 
 bool GraphADT::isGraphEulerian()
 {
+
 	if (this->NumberOfNodes <= 2)
 		return false;
 	else
